@@ -1,0 +1,17 @@
+
+FROM oven/bun:1
+
+WORKDIR /usr/src/app
+ARG DATABASE_URL
+COPY ./packages  ./packages 
+COPY ./bun.lock ./bun.lock 
+
+COPY ./apps/backend ./apps/backend
+
+RUN bun install
+RUN bun run db:migrate
+RUN  DATABASE_URL=${DATABASE_URL} bun run build
+
+EXPOSE 8080
+
+CMD [ "bun" , "run", "start:web" ]
