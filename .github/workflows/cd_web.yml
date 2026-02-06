@@ -23,8 +23,8 @@ jobs:
         with:
             context: .
             file: ./docker/Dockerfile.frontend
-            build-args: |
-             DATABASE_URL=${{ secrets.DATABASE_URL }}
+            build-args: 
+             - DATABASE_URL=${{ secrets.DATABASE_URL }}
           
             push: true
             tags: manishkumar55/todo-app-web:latest
