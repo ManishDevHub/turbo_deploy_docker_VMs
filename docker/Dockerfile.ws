@@ -7,6 +7,7 @@ COPY ./packages  ./packages
 COPY ./bun.lock ./bun.lock 
 
 COPY ./apps/ws ./apps/ws
+COPY . . 
 
 RUN bun install
 RUN bun run db:generate

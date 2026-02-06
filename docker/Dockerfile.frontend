@@ -6,7 +6,8 @@ ARG DATABASE_URL
 COPY ./packages  ./packages 
 COPY ./bun.lock ./bun.lock 
 
-COPY ./apps/backend ./apps/backend
+COPY ./apps/web ./apps/web
+COPY . .
 
 RUN bun install
 RUN bun run db:generate
