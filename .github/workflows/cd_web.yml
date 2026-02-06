@@ -1,5 +1,5 @@
 
-name: Deploy the Websocket
+name: Deploy the frontend
 on:
    push: 
      branches: [ main ]
@@ -22,9 +22,11 @@ jobs:
         uses: docker/build-push-action@v4
         with:
             context: .
-            file: ./docker/Dockerfile.ws
+            file: ./docker/Dockerfile.frontend
+            build-args: |
+             DATABASE_URL=${{ secrets.DATABASE_URL }}
           
             push: true
-            tags: manishkumar55/todo-app-ws:latest
+            tags: manishkumar55/todo-app-web:latest
 
          
