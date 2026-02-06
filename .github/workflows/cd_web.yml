@@ -9,7 +9,7 @@ jobs:
    build:
     runs-on: ubuntu-latest
     steps:
-      - name: Chechout the code
+      - name: Checkout the code
         uses: actions/checkout@v2
 
       - name: Docker login
