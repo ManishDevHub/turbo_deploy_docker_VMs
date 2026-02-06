@@ -145,7 +145,7 @@ app.delete('/todo/:id', async( req , res) => {
         })
 
         if( !data){
-            return res.status(404).json({ message: "todo not deleted "})
+            return res.status(404).json({ message: "todo not deleted . "})
         }
 
     } catch( err){
