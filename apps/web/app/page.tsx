@@ -5,6 +5,7 @@ const users = await prisma.user.findMany();
   return (
     <div>
       { JSON.stringify(users) }
+      this is my userData 
     </div>
   )
 }
