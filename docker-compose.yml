@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/docker/Dockerfile.frontend
+    container_name: turbo-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - backend
+      - ws
+
+  backend:
+    build:
+      context: .
+      dockerfile: apps/docker/Dockerfile.backend
+    container_name: turbo-backend
+    ports:
+      - "8081:8081"
+    environment:
+      - NODE_ENV=production
+
+  ws-backend:
+    build:
+      context: .
+      dockerfile: apps/docker/Dockerfile.ws
+    container_name: turbo-ws-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production

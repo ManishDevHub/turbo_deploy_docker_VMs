@@ -9,7 +9,7 @@ COPY ./bun.lock ./bun.lock
 COPY ./apps/ws ./apps/ws
 
 RUN bun install
-RUN bun run db:migrate
+RUN bun run db:generate
 
 EXPOSE 8081
 
