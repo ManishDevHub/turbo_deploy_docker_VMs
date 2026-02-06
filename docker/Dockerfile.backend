@@ -7,7 +7,8 @@ COPY ./packages  ./packages
 COPY ./bun.lock ./bun.lock 
 
 COPY ./apps/backend ./apps/backend
-WORKDIR /apps/backend
+
+COPY . . 
 RUN bun install
 RUN bun run db:generate
 
