@@ -12,8 +12,8 @@ COPY . .
 
 RUN bun install
 RUN bun run db:generate
-RUN  DATABASE_URL=${DATABASE_URL} bun run build
-
+#RUN  DATABASE_URL=${DATABASE_URL} bun run build
+RUN bun run build
 EXPOSE 8080
 
 CMD [ "bun" , "run", "start:web" ]
