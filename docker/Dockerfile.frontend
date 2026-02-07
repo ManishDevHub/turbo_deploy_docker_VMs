@@ -3,7 +3,7 @@ FROM oven/bun:1
 
 WORKDIR /usr/src/app
 ARG DATABASE_URL
-ENV DATABASE_URL=$DATABASE_URL
+
 COPY ./packages  ./packages 
 COPY ./bun.lock ./bun.lock 
 
@@ -12,9 +12,7 @@ COPY . .
 
 RUN bun install
 RUN bun run db:generate
-#RUN  DATABASE_URL=${DATABASE_URL} bun run build
-RUN --build-arg DATABASE_URL= ${DATABASE_URL} 
-RUN bun run build
+RUN  DATABASE_URL=${DATABASE_URL} bun run build
 EXPOSE 8080
 
 CMD [ "bun" , "run", "start:web" ]
