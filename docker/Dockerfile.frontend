@@ -11,7 +11,7 @@ COPY ./apps/web ./apps/web
 COPY . .
 
 RUN bun install
-RUN bunx prisma generate --schema=packages/db/prisma/schema.prisma
+RUN bun prisma db:generate --schema=packages/db/prisma/schema.prisma
 RUN bun run build
 
 EXPOSE 8080
