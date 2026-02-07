@@ -11,8 +11,9 @@ COPY ./apps/web ./apps/web
 COPY . .
 
 RUN bun install
-RUN bunx run db:generate 
-RUN  DATABASE_URL=${DATABASE_URL} bun run build
+RUN bunx prisma generate --schema=packages/db/prisma/schema.prisma
+RUN bun run build
+
 EXPOSE 8080
 
 CMD [ "bun" , "run", "start:web" ]

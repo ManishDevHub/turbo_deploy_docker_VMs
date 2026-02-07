@@ -24,6 +24,9 @@ jobs:
         with:
             context: .
             file: ./docker/Dockerfile.frontend
+            secrets: | 
+              DATABASE_URL=${{ secrets.DATABASE_URL }}
+          
             push: true
             tags: manishkumar55/todo-app-web:latest
 
