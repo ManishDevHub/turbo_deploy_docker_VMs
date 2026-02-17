@@ -6,7 +6,7 @@ const users = await prisma.user.findMany();
   return (
     <div>
       { JSON.stringify(users) }
-      this is my userData 
+      this is my userData and nextjs frontend
     </div>
   )
 }
